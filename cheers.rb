@@ -1,16 +1,3 @@
-# Build on the results of our in-class exploration to output, for example:
-
-# Give me an... A
-# Give me a... B
-# Give me a... B
-# Give me a... Y
-# ABBY’s just GRAND!
-# When given the input of “Abby”.
-
-# Note: the “a” vs. “an”
-
-# P.S.: name.methods - Object.methods
-
 puts "What's your name?"
 name = gets.chomp
 if name.empty?
@@ -25,3 +12,17 @@ name.each_char do |char|
   end
 end
 puts name.upcase + "'s just GRAND!"
+puts "Hey, " + name + ", what's your birthday? (YYYY/MM/DD)"
+birthday = gets.chomp
+year, month, day = birthday.split("/")
+t = Time.now
+t2 = Time.new(Time.now.year, month, day)
+days = ((t2 - t) / 60 / 60 / 24).to_i
+if days < 0
+  days += 365
+end
+if days == 0
+  puts "Happy Birthday!"
+else
+  puts "Awesome! Your birthday is in #{days} days! Happy Birthday in advance!"
+end
